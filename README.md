@@ -4,15 +4,9 @@ Fine-tune [Gemma 3 4B-IT](https://huggingface.co/unsloth/gemma-3-4B-it) for cust
 
 **Model on Hugging Face:** [devendrajadhav34/gemma3-bitext-support-lora](https://huggingface.co/devendrajadhav34/gemma3-bitext-support-lora)
 
-## Overview
-
-This project adapts a general-purpose instruction-tuned LLM into a domain-specific customer support assistant. Training is memory-efficient: the base model is loaded in 4-bit precision, and only LoRA adapter weights are updated during supervised fine-tuning (SFT).
-
-Compared to the base Gemma 3 4B model, the fine-tuned adapter produces responses that better match the tone and structure of professional support replies.
-
 ## Results
 
-Evaluation on 100 held-out samples from the test split:
+Evaluation on a held-out dataset from the test split:
 
 | Metric    | Base Gemma | Fine-tuned | Change   |
 |-----------|------------|------------|----------|
@@ -22,6 +16,13 @@ Evaluation on 100 held-out samples from the test split:
 | BERTScore F1 | 0.843   | 0.913      | +8%      |
 
 The base model tends to ask many follow-up questions; the fine-tuned model responds in a more direct, support-oriented style aligned with the training data.
+## Overview
+
+This project adapts a general-purpose instruction-tuned LLM into a domain-specific customer support assistant. Training is memory-efficient: the base model is loaded in 4-bit precision, and only LoRA adapter weights are updated during supervised fine-tuning (SFT).
+
+Compared to the base Gemma 3 4B model, the fine-tuned adapter produces responses that better match the tone and structure of professional support replies.
+
+
 
 ## Tech Stack
 
